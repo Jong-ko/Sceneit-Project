@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const searchString = document.getElementsByClassName('search-bar')[0].value
     const urlEncodedSearchString = encodeURIComponent(searchString)
     // console.log(urlEncodedSearchString)
-    await fetch("http://www.omdbapi.com/?apikey=59354c85&s=" + urlEncodedSearchString) 
+    await fetch("https://www.omdbapi.com/?apikey=59354c85&s=" + urlEncodedSearchString) 
       .then(async function (response) {
       // console.log(response)
       return await response.json()
