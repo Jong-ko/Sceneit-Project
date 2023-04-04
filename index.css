@@ -1,5 +1,5 @@
 body {
-	background-color: #B2E9FD;
+	background-color: #c8c8c8;
 }
 
 .header h2 {
@@ -14,3 +14,133 @@ body {
 	margin-top: 20px;
 }
 
+/*
+flip card
+*/
+.card-flip > div {
+	backface-visibility: hidden;
+	transition: transform 300ms;
+	transition-timing-function: linear;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	display: flex;
+  }
+  
+  .card-front {
+	transform: rotateY(0deg);
+  }
+  
+  .card-back {
+	transform: rotateY(180deg);
+	position: absolute;
+	top: 0;
+  }
+  
+  .card-flip:hover .card-front {
+	transform: rotateY(-180deg);
+  }
+	
+  .card-flip:hover .card-back {
+	transform: rotateY(0deg);
+  }
+
+/* body {
+	background: url(http://s25.postimg.org/b6q25p4p7/black_thread.png);
+  }
+  .results {
+	position: relative;
+	margin: 0 auto;
+	top: 10px;
+	width: 100%;
+	height: 350px;
+	-webkit-perspective: 600px;
+	perspective: 600px;
+	text-align: center;
+  }
+  .art {
+	display: inline-block;
+	position: relative;
+	margin: 15px;
+	width: 225px;
+	height: 300px;
+	line-height: 300px;
+	background-color: #51634b;
+	border-radius: 2px;
+	-webkit-animation: animOpp 0.4s 1;
+	animation: animOpp 0.4s 1;
+	box-shadow: 1px 1px 5px #304129;
+  }
+  .art:hover {
+	-webkit-animation: anim ease-out 0.5s 1;
+	animation: anim 0.5s 1;
+	transform: translateZ(30px);
+	cursor: pointer;
+  }
+  .art:active {
+	-webkit-transform: translateZ(26px);
+	transform: translateZ(26px);
+  }
+  @-webkit-keyframes anim {
+	0% {
+	  transform: rotateX(0deg) translateZ(0px);
+	}
+	25% {
+	  transform: rotateX(-4deg) translateZ(15px);
+	}
+	37% {
+	  transform: rotateX(-8deg) translateZ(30px);
+	  transform-origin: 50% 0%;
+	}
+	72% {
+	  transform-origin: 50% 0%;
+	  transform: rotateX(-4deg) translateZ(30px);
+	}
+	100% {
+	  transform-origin: 50% 0%;
+	  transform: rotateX(0deg) translateZ(30px);
+	}
+  }
+  @keyframes anim {
+	0% {
+	  transform: rotateX(0deg) translateZ(0px);
+	}
+	25% {
+	  transform: rotateX(-4deg) translateZ(15px);
+	}
+	37% {
+	  transform: rotateX(-8deg) translateZ(30px);
+	  transform-origin: 50% 0%;
+	}
+	72% {
+	  transform-origin: 50% 0%;
+	  transform: rotateX(-4deg) translateZ(30px);
+	}
+	100% {
+	  transform-origin: 50% 0%;
+	  transform: rotateX(0deg) translateZ(30px);
+	}
+  }
+  @-webkit-keyframes animOpp {
+	0% {
+	  transform: translateZ(30px);
+	}
+	35% {
+	  transform: translateZ(20px);
+	}
+	100% {
+	  transform: translateZ(0px);
+	}
+  }
+  @keyframes animOpp {
+	0% {
+	  transform: translateZ(30px);
+	}
+	35% {
+	  transform: translateZ(20px);
+	}
+	100% {
+	  transform: translateZ(0px);
+	}
+  } */
+  
