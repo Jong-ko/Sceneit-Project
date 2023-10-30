@@ -4,20 +4,22 @@ document.addEventListener("DOMContentLoaded", function () {
   const myForm = document.querySelector("#search-form");
   myForm.addEventListener("submit", async function (e) {
     e.preventDefault();
-    const searchString = document.getElementsByClassName('search-bar')[0].value
-    const urlEncodedSearchString = encodeURIComponent(searchString)
+    const searchString = document.getElementsByClassName("search-bar")[0].value;
+    const urlEncodedSearchString = encodeURIComponent(searchString);
     // console.log(urlEncodedSearchString)
-    await fetch("https://www.omdbapi.com/?apikey=59354c85&s=" + urlEncodedSearchString) 
+    await fetch(
+      "https://www.omdbapi.com/?apikey=59354c85&s=" + urlEncodedSearchString
+    )
       .then(async function (response) {
-      // console.log(response)
-      return await response.json()
+        // console.log(response)
+        return await response.json();
       })
-      .then(function(data){
-        console.log(data)
+      .then(function (data) {
+        console.log(data);
         document.getElementsByClassName("movies-container")[0].innerHTML =
-        renderMovies(data.Search);
-        movieData =  data.Search
-      })
+          renderMovies(data.Search);
+        movieData = data.Search;
+      });
 
     function renderMovies(movieArray) {
       const movieHtmlArray = movieArray.map(function (currentMovie) {
@@ -26,6 +28,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div class="card-body">
                       <div class="card-title title">${currentMovie.Title}</div>
                       <div class="releaseDate">${currentMovie.Year}</div>
+                    </div>
+                    <div class="card-footer">
                       <button class="add-button" data-imdbid=${currentMovie.imdbID}>Add Movie</button>
                     </div>
                   </div>`;
@@ -33,10 +37,10 @@ document.addEventListener("DOMContentLoaded", function () {
       return movieHtmlArray.join("");
     }
   });
-  document.addEventListener('click', function (event) {
+  document.addEventListener("click", function (event) {
     if (event.target.classList.contains("add-button")) {
       const movieID = event.target.dataset.imdbid;
-      saveToWatchlist(movieID)
+      saveToWatchlist(movieID);
     }
   });
 });
@@ -44,11 +48,11 @@ document.addEventListener("DOMContentLoaded", function () {
 const saveToWatchlist = (movieID) => {
   const movie = movieData.find((currentMovie) => {
     return currentMovie.imdbID == movieID;
-  })
+  });
   let watchlistJSON = localStorage.getItem("watchlist");
   let watchlist = JSON.parse(watchlistJSON);
   if (watchlist == null) {
-    watchlist = []
+    watchlist = [];
   }
   watchlist.push(movie);
   watchlistJSON = JSON.stringify(watchlist);
