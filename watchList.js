@@ -11,10 +11,10 @@ document.addEventListener("DOMContentLoaded", function () {
         return `<div class="movie card m-1">
                     <img src=${currentMovie.Poster} alt="Movie Poster" />
                     <div class="card-body">
-                      <div class="card-title title">${currentMovie.Title}</div>
+                      <div class="card-title title">${currentMovie.Title}
                       <div class="releaseDate">${currentMovie.Year}</div>
-                      <button class="add-button" data-imdbid=${currentMovie.imdbID}>Add Movie</button>
                     </div>
+                    <button class="add-button card-footer" data-imdbid=${currentMovie.imdbID}>Add Movie</button>
                   </div>`;
       });
       return movieHtmlArray.join("");
