@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
                       <div class="releaseDate">${currentMovie.Year}</div>
                     </div>
                     <div class="card-footer">
-                      <button class="add-button" data-imdbid=${currentMovie.imdbID}>Add Movie</button>
+                      <button type="button" id="${currentMovie.imdbID}"class="btn btn-primary add-button" data-imdbid=${currentMovie.imdbID}>Add Movie</button>
                     </div>
                   </div>`;
       });
@@ -40,6 +40,9 @@ document.addEventListener("DOMContentLoaded", function () {
   document.addEventListener("click", function (event) {
     if (event.target.classList.contains("add-button")) {
       const movieID = event.target.dataset.imdbid;
+      document.getElementById(event.target.dataset.imdbid).textContent = "Added!"
+      document.getElementById(event.target.dataset.imdbid).setAttribute("disabled", " ")
+      document.getElementById(event.target.dataset.imdbid).setAttribute("class", "btn btn-success add-button")
       saveToWatchlist(movieID);
     }
   });
